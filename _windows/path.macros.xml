@@ -1,0 +1,5 @@
+<application>
+  <component name="PathMacrosImpl">
+    <macro name="git.exe" value="C:/Users/nvtng/AppData/Local/GitHubDesktop/bin" />
+  </component>
+</application>
