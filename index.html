@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Ngan V. T. Nguyen | Data Visualization | Signal Processing</title>
+  <meta property="og:url" content="http://myweb.ttu.edu/ngu00336/">
+  <meta property="og:title" content="Ngan V. T. Nguyen | Data Visualization| Signal Processing">
+  <meta property="og:site_name" content="http://myweb.ttu.edu/ngu00336/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en-US">
+  <meta property="og:image" content="image URL">
+  <meta property="og:description" content="virtual reality, augmented reality, mixed reality, data visualization, signal processing, IOT.">
+  <link rel="shortcut icon" href="img/iDVL.png">
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript" src="https://d3js.org/d3.v5.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="http://www.ttu.edu/" class="brand-logo">
+      	<img src="img/ttu.png" alt="Texas Tech University" itemprop="image" width="31" height="30" class="rounded-circle">
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://www.myweb.ttu.edu/tnhondan/iDVL/index.php#">
+        	<img src="img/iDVL.png" alt="TiDVL" itemprop="image" width="31" height="30" class="rounded-circle"> My Lab - iDVL</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li>
+        	<a href="http://www.myweb.ttu.edu/tnhondan/iDVL/index.php#">
+        	<img src="img/iDVL.png" alt="TiDVL" itemprop="image" width="31" height="30" class="rounded-circle"> My Lab - iDVL</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <main>
+  	<svg id="playzone" style="height: 100%; width: 100%; padding: 10px">
+  	</svg>
+  </main>
+  <footer class="page-footer red darken-4">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3">Ngan V.T.Nguyen</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "z45qxfp3"
+      }], "*")
+    }
+  </script>
