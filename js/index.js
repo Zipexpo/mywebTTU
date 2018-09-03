@@ -41,17 +41,23 @@ window.onload=function(){
 	          .on("drag", dragged)
 	          .on("end", dragended));
 		svg.selectAll(".sum")
-			.filter(function(d,i){if(d.image!=null) console.log(d.image); return d.image;})
+			.filter(function(d,i){if(d.image!=null) return d.image;})
 			.append("svg:image")
-				.attr("class","resresponsive-img circle")
-				.attr("src",d.img);
+				.attr("class","img")
+				.attr("xlink:href",function(d){return "img/"+d.image;})
+				.attr('height', function(d){
+					return '19'
+				})
+				.attr('width', '29');
         svg.selectAll(".sum")
-            .filter(function(d,i){if(d.icon!=null) console.log(d.icon); return d.icon;})
-            .append("i")
-            .attr("class",function(d){
-                return "icon fa fa-5x fa-" + d.icon;
+            .filter(function(d,i){if(d.icon!=null) return d.icon;})
+            .append("image")
+            .attr("xlink:href",function(d){return "icon/baseline-"+d.icon+"-24px.svg";})
+            .attr("class","icon")
+            .attr('height', function(d){
+                return '19'
             })
-            .style(defaultStyle);
+            .attr('width', '29');
 		simulation
 		  .nodes(data.nodes)
 		  .on("tick", ticked);
