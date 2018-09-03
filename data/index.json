@@ -2,7 +2,7 @@
 "nodes":[
 	{"id": "0",
 	"tag":"avatar",
-	"img":"img/mev3.png",
+	"image":"image/mev3.png",
 	"caption":"Ngan V.T. Nguyen",
 	"size":20},
 	{"id": "1","tag":"education",
