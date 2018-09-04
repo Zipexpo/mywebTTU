@@ -1,5 +1,5 @@
 window.onload=function(){
-	var node;
+	var node,nodeEnter;
 	var margin = {top: 0, right: 0, bottom: 0, left: 0};
 	var width = (window.innerWidth
 || document.documentElement.clientWidth
@@ -31,33 +31,45 @@ window.onload=function(){
 	      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
 		node = svg.append("g")
-		.selectAll(".sum")
-		.data(data.nodes,function(d) { return d.id; })
-		.enter().append("circle")
+			.selectAll("g.sumg")
+		.data(data.nodes,function(d) { return d; });
+		nodeEnter = node
+		.enter().append("g")
+			.attr("class","sumg")
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));;
+		nodeEnter.append("circle")
 			.attr("class", "sum")
 			.attr("r", function(d){ return csize(d.size);})
-			.call(d3.drag()
-	          .on("start", dragstarted)
-	          .on("drag", dragged)
-	          .on("end", dragended));
-		svg.selectAll(".sum")
+            .attr("fill" , function(d){ return "#eee"});
+		nodeEnter
 			.filter(function(d,i){if(d.image!=null) return d.image;})
-			.append("svg:image")
+			.append("image")
 				.attr("class","img")
-				.attr("xlink:href",function(d){return "img/"+d.image;})
+				.attr("href",function(d){return d.image;})//"http://marvel-force-chart.surge.sh/marvel_force_chart_img/thanos.png")//function(d){return d.image;})
 				.attr('height', function(d){
-					return '19'
+					return csize(d.size);
 				})
-				.attr('width', '29');
-        svg.selectAll(".sum")
+				.attr('width', function(d){
+                    return csize(d.size);
+                })
+            .attr("x", function(d) { return -csize(d.size)/2;})
+            .attr("y", function(d) { return -csize(d.size)/2;});
+        nodeEnter
             .filter(function(d,i){if(d.icon!=null) return d.icon;})
             .append("image")
-            .attr("xlink:href",function(d){return "icon/baseline-"+d.icon+"-24px.svg";})
+            .attr("xlink:href",function(d){console.log("baseline-"+d.icon+"-24px.svg"); return "baseline-"+d.icon+"-24px.svg";})
             .attr("class","icon")
             .attr('height', function(d){
-                return '19'
+                return csize(d.size);
             })
-            .attr('width', '29');
+            .attr('width', function(d){
+                return csize(d.size);
+            })
+            .attr("x", function(d) { return -csize(d.size)/2;})
+            .attr("y", function(d) { return -csize(d.size)/2;});
 		simulation
 		  .nodes(data.nodes)
 		  .on("tick", ticked);
@@ -68,11 +80,16 @@ window.onload=function(){
 		
 
 		function ticked() {
-		  	node
-		        .attr("cx", function(d) { return d.x = Math.max(csize(d.size), Math.min(width - csize(d.size), d.x)); })
-		        .attr("cy", function(d) { return d.y = Math.max(csize(d.size), Math.min(height - csize(d.size)-100, d.y)); })
+		  	nodeEnter
+		        //.attr("cx", function(d) { return d.x = Math.max(csize(d.size), Math.min(width - csize(d.size), d.x)); })
+		        //.attr("cy", function(d) { return d.y = Math.max(csize(d.size), Math.min(height - csize(d.size)-100, d.y)); })
+            .attr("transform", function(d) {
+                d.x = Math.max(csize(d.size), Math.min(width - csize(d.size), d.x));
+                d.y = Math.max(csize(d.size), Math.min(height - csize(d.size)-100, d.y));
+                return "translate("+d.x+","+d.y+")"; })
+            //.attr("cy", function(d) { return d.y = Math.max(csize(d.size), Math.min(height - csize(d.size)-100, d.y)); })
 		        //.attr("fill" , function(d){ return color(d.group)});
-		        .attr("fill" , function(d){ return color(d.group)});
+		        //.attr("fill" , function(d){ return "#eee"});
 		    link
 		        .attr("x1", function(d) { return d.source.x; })
 		        .attr("y1", function(d) { return d.source.y; })

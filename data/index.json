@@ -2,7 +2,7 @@
 "nodes":[
 	{"id": "0",
 	"tag":"avatar",
-	"image":"image/mev3.png",
+	"image":"mev3.png",
 	"caption":"Ngan V.T. Nguyen",
 	"size":20},
 	{"id": "1","tag":"education",
@@ -16,15 +16,17 @@
 	"size":15},
 	{"id": "3","tag":"current",
 	"caption":"iVLD",
+      "image":"iDVL.png",
 	"size":15},
 	{"id": "4","tag":"VNU-HCMUS",
 	"caption":"VNU-HCMUS",
-	"image":"hcmumslogo.png",
+	"image":"KHTN.png",
 	"size":10,
 	"group":3},
 	{"id": "5","tag":"PandCS",
 	"caption":"Physics and Computer Science",
-	"image":"PCSlogo.png",
+	"image":"PnCS.png",
+    "web":"http://vlth13b.honeynet.vn/",
 	"size":5,
 	"group":3},
 	{"id": "6","tag":"TTU",
@@ -34,7 +36,7 @@
 	"group":3},
 	{"id": "7","tag":"iVLD",
 	"caption":"iVLD",
-	"image":"iVLD.png",
+	"image":"iDVL.png",
 	"size":5,
 	"group":3}
 ],
@@ -45,5 +47,5 @@
 	{"source": "1", "target": "4", "value": 3},
 	{"source": "4", "target": "5", "value": 4},
 	{"source": "1", "target": "6", "value": 4},
-	{"source": "4", "target": "7", "value": 4}
+	{"source": "6", "target": "7", "value": 4}
 	]}
