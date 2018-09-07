@@ -10,8 +10,12 @@
           <option name="url" value="git://github.com/nvtNgan/mywebTTU.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/iDataVisualizationLab/VRParallelSet.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="E:\nvtng\webTTU" />
+    <option name="cloneParentDir" value="E:\nvtng\Projects\GitHub" />
   </component>
 </application>
