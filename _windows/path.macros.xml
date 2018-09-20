@@ -1,5 +1,9 @@
 <application>
   <component name="PathMacrosImpl">
     <macro name="git.exe" value="C:/Users/nvtng/AppData/Local/GitHubDesktop/bin" />
+    <ignoredMacro name="MESSAGE" />
+    <ignoredMacro name="FILE_PATH" />
+    <ignoredMacro name="LINE" />
+    <ignoredMacro name="COLUMN" />
   </component>
 </application>
