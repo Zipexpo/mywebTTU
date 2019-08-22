@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern=".gitattributes" type="PLAIN_TEXT" />
       <mapping ext="geojson" type="PLAIN_TEXT" />
+      <mapping ext="php" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
