@@ -38,7 +38,27 @@
 	"caption":"iVLD",
 	"image":"iDVL.png",
 	"size":5,
-	"group":3}
+	"group":3},
+	{"id": "8","tag":"HiperVR",
+		"caption":"HiperVR",
+		"image":"img/2019_HiperVR.png",
+		"size":7,
+		"group":4},
+	{"id": "9","tag":"ant",
+		"caption":"ANT-sne",
+		"image":"img/ant_thum.gif",
+		"size":7,
+		"group":4},
+	{"id": "10","tag":"finanviz",
+		"caption":"FinanViz",
+		"image":"img/FinanViz.png",
+		"size":7,
+		"group":4},
+	{"id": "11","tag":"PhaseSpace",
+		"caption":"PhaseSpace",
+		"image":"img/PhaseSpace.png",
+		"size":7,
+		"group":4}
 ],
 "links": [
 	{"source": "0", "target": "1", "value": 2},
@@ -47,5 +67,8 @@
 	{"source": "1", "target": "4", "value": 3},
 	{"source": "4", "target": "5", "value": 4},
 	{"source": "1", "target": "6", "value": 4},
-	{"source": "6", "target": "7", "value": 4}
+	{"source": "6", "target": "7", "value": 4},
+	{"source": "2", "target": "8", "value": 1},
+	{"source": "2", "target": "9", "value": 1},
+	{"source": "2", "target": "10", "value": 1}
 	]}

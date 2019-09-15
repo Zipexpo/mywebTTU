@@ -10,6 +10,7 @@ window.onload=function(){
 	//scale
 	var csize = d3.scaleLinear().range([0,Math.min(width,height)/150]);
 	var color = d3.scaleOrdinal(d3.schemeCategory10);
+	var config = {avatar_size: 100};
 	//sceen
 	var svg = d3.select("svg");
     var range = Math.min(width,height)-20;
@@ -23,6 +24,28 @@ window.onload=function(){
         .force("x", d3.forceX(0));
 	//data
 	d3.json("data/index.json").then(function(data) {
+        var pattern = svg.selectAll("defs")
+            .data(data.nodes.filter(function(d){return d.image}),function(d) { return d; })
+			.enter()
+            .append('defs')
+				.append("pattern")
+				.attr("id", function(d){return "node_avatar" + d.id})
+				.attr("width", 1)
+				.attr("height", 1)
+				.attr("patternContentUnits", "objectBoundingBox");
+        pattern.append("svg:rect")
+            .attr("width", 1)
+            .attr("height", 1)
+            .attr("fill", "#eee");
+        pattern
+				.append("svg:image")
+					.attr("xlink:href",function(d){return d.image})
+            .attr("x", 0)
+            .attr("y", 0)
+					.attr("width", 1)
+					.attr("height", 1)
+					.attr("preserveAspectRatio", "xMinYMin slice");
+
 		var link = svg.append("g")
       	.attr("class", "links")
 	    .selectAll("line")
@@ -39,24 +62,19 @@ window.onload=function(){
             .call(d3.drag()
                 .on("start", dragstarted)
                 .on("drag", dragged)
-                .on("end", dragended));;
+                .on("end", dragended));
 		nodeEnter.append("circle")
 			.attr("class", "sum")
 			.attr("r", function(d){ return csize(d.size);})
-            .attr("fill" , function(d){ return "#eee"});
+            .style("fill" , function(d){ return "#eee"});
 		nodeEnter
 			.filter(function(d,i){if(d.image!=null) return d.image;})
-			.append("image")
-				.attr("class","img")
-				.attr("href",function(d){return d.image;})//"http://marvel-force-chart.surge.sh/marvel_force_chart_img/thanos.png")//function(d){return d.image;})
-				.attr('height', function(d){
-					return csize(d.size);
-				})
-				.attr('width', function(d){
-                    return csize(d.size);
-                })
-            .attr("x", function(d) { return -csize(d.size)/2;})
-            .attr("y", function(d) { return -csize(d.size)/2;});
+			.select('circle')
+            .style("fill", function(d){
+            	return "url(#node_avatar" + d.id + ")"})
+			// .attr('cx',function(d){return csize(d.size)/2})
+			// .attr('cy',function(d){return csize(d.size)/2})
+		;
         nodeEnter
             .filter(function(d,i){if(d.icon!=null) return d.icon;})
             .append("image")

@@ -83,3 +83,6 @@ main {
   stroke: #999;
   stroke-opacity: 0.6;
 }
+circle {
+  stroke: #dddddd;
+}
